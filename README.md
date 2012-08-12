@@ -4,29 +4,29 @@ Javascript Remoting, AJAX and JSON Using Play 2.0
 Prerequisites
 ------------
 
-To follow this you will need to know a little  java, javascript and how play 2.0 works. 
-There are comments in most the code that should help. You will need play 2.0 and git 
-installed to run it from your own machine.
+You will need to know a little  java, javascript and how play 2.0 works. 
+There are comments in the code that should help. You will need play 2.0 and git 
+installed to run this example from your own machine.
 
 To run it, simply do a "git clone", cd to the project directory, then "play run".
 
-How to read the code
---------------------
+The Code
+--------
 
-It's a pretty simple play 2.0 app. Start with looking at app/controllers/Application.java 
-which defines four http methods:
+It's a pretty simple play 2.0 app. Start by looking at [app/controllers/Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) 
+which defines four methods:
 
 * sayHello()
 * sayHelloToString(String name)
 * sayHelloToJson()
 * sayHelloWithJson(String name)
 
-Which are made available to be be called from client side javascript by the last method
+Which are made available to be be called from client side javascript by the last method:
 
 * javascriptRoutes()
 
-All five of these methods have http methods routed to them by the URLs defined in the
-standard play conf/routes file (four are GET methods and one is a POST method).
+All five of these java methods have http methods routed to them by the URLs defined in the
+standard play **conf/routes** file (four are GET methods and one is a POST method).
 
 They are called from the client side "index page" accessed at / and defined by 
 app/views/index.scala.html. This file contains most of the javascript responsible for
