@@ -50,7 +50,7 @@ public class Application extends Controller {
     return ok(result);
   }
 
-  // -- Javascript routing
+  // Javascript routing
   public static Result javascriptRoutes() {
     response().setContentType("text/javascript");
     return ok(Routes.javascriptRouter(
