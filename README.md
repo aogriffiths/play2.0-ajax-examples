@@ -1,37 +1,69 @@
-How To Build An AJAX + JSON App Using Play 2.0
-==============================================
+Javascript Remoting, AJAX and JSON Using Play 2.0
+=================================================
 
-First of all let's get the basics set up. Install Play 2.0, add it to your 
-path, create a directory for this tutorial and cd to it. The run
+Prerequisits
+------------
 
-'''shell
-play new name-your-project
-'''
+To follow this you will need to know a little  java, javascript and how play 2.0 works. 
+There are comments in most the code that should help. You will need play 2.0 and git 
+installed to run it from your own machine.
 
-'''
-       _            _ 
- _ __ | | __ _ _  _| |
-| '_ \| |/ _' | || |_|
-|  __/|_|\____|\__ (_)
-|_|            |__/ 
-             
-play! 2.0.3, http://www.playframework.org
+To run it, simply do a "git clone", cd to the project directory, then "play run".
 
-The new application will be created in [...]/play2.0-ajax-examples
+How to read the code
+--------------------
 
-What is the application name? 
-> play2.0-ajax-examples
+It's a prety simple play 2.0 app. Start with looking at app/controllers/Application.java 
+which defines four http methods:
 
-Which template do you want to use for this new application? 
+sayHello()
+sayHelloToString(String name)
+sayHelloToJson()
+sayHelloWithJson(String name)
 
-  1 - Create a simple Scala application
-  2 - Create a simple Java application
-  3 - Create an empty project
+Which are made avilable to be be called from client side javascript by the last method
 
-> 2
+javascriptRoutes()
 
-OK, application play2.0-ajax-examples is created.
+All five of these methods have http methods routed to them by the URLs defined in the
+standard play conf/routes file (four are GET methods and one is a POST method).
 
-Have fun!
-'''
+They are called from the client side "index page" accessed at / and defined by 
+app/views/index.scala.html. This file contains most of the javascript repsonsible for
+calling the methods above.
 
+sayHello is called as a simple GET request. 
+
+sayHelloToString is called as a GET request with the name parameter in the query string.
+
+sayHelloToJson is called as POST request with the paramrers posted as JSON in the 
+request body. The reponse is sent back as JSON
+
+sayHelloWithJson is called as a GET request and the responses is JSON.
+
+For all of these methods to work seemlessly from the client side there one important 
+peice of glue, the "jsRoutes". Basically the best way to understand this is to first 
+read the java method:
+
+   app.controllers.Application.javascriptRoutes()
+
+Which builds a javascript "routing" script, which is itself is routed to, with (defined
+in the conf/routes file): 
+
+   GET     /assets/javascripts/routes  controllers.Application.javascriptRoutes()
+
+And called into the browser by the line (defined in the app/views/main.scala.html file):
+
+   <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
+
+This means javascript in app/views/index.scala.html can easily call the java in 
+app.controllers.Application with lines like 
+
+   jsRoutes.controllers.Application.sayHello()
+
+
+That's the higlights, hopfully you can get all details and nauces of the four methods from
+the code. Applications.java and index.scala.html both contains comments. If you would like to 
+understand more of what is going on under the hood there are comments in Applications.java
+on how to use cURL to play with the examples and index.scala.html includes debug statements 
+for your broswer's javascript debug console. 

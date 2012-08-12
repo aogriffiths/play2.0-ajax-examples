@@ -5,5 +5,15 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+#AJAX Methods
+GET     /say1                       controllers.Application.sayHello()
+GET     /say2                       controllers.Application.sayHelloToString(name: String)
+POST    /say3                       controllers.Application.sayHelloToJson()
+GET     /say4                       controllers.Application.sayHelloWithJson(name: String)
+
+# Javascript routing 
+GET     /assets/javascripts/routes  controllers.Application.javascriptRoutes()
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
