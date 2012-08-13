@@ -46,7 +46,7 @@ see the java method:
 
     app.controllers.Application.javascriptRoutes()
 
-Which builds a "routing" javascript, which is itself is routed to, with: (see [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes)): 
+Which builds a "routing" javascript, and is itself is routed to, by the line: (see [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes)): 
 
     GET     /assets/javascripts/routes  controllers.Application.javascriptRoutes()
  
@@ -54,17 +54,20 @@ And called into the browser by the line: (see [main.scala.html](/aogriffiths/pla
 
     <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
 
-This means javascript in [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
+And then the javascript in [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
  can easily call the java in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java)  with lines like 
 
     jsRoutes.controllers.Application.sayHello()
 
+Summary
+-------
 
 That's the highlights, hopefully you can get all details and nuances from
 the code. 
+
 [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) and 
 [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html) 
 both contain comments. If you would like to understand more of what is going on under the 
-hood the comments in Applications.java metion how to use cURL to play with the metods and 
+hood the comments in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) mention how to use cURL to play arround with it. And 
 [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
 includes debug statements  for your browser's javascript debug console. 
