@@ -28,7 +28,7 @@ Which are made available to be be called from client side javascript by the last
 All five of these java methods have http methods routed to them as per [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes) (four are GET methods and one is a POST method).
 
 They are called from the "index page" defined by 
-[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html). This file contains most of the javascript responsible for
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/index.scala.html). This file contains most of the javascript responsible for
 calling the methods above.
 
 * **sayHello** is called as a simple GET request. 
@@ -50,11 +50,11 @@ Which builds a "routing" javascript, and is itself is routed to, by the line: (s
 
     GET     /assets/javascripts/routes  controllers.Application.javascriptRoutes()
  
-And called into the browser by the line: (see [main.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/main.scala.html)):
+And called into the browser by the line: (see [main.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/main.scala.html)):
 
     <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
 
-And then the javascript in [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
+And then the javascript in [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/index.scala.html)
  can easily call the java in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java)  with lines like 
 
     jsRoutes.controllers.Application.sayHello()
@@ -66,8 +66,8 @@ That's the highlights, hopefully you can get all details and nuances from
 the code. 
 
 [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) and 
-[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html) 
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/index.scala.html) 
 both contain comments. If you would like to understand more of what is going on under the 
 hood the comments in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) mention how to use cURL to play arround with it. And 
-[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/index.scala.html)
 includes debug statements  for your browser's javascript debug console. 
