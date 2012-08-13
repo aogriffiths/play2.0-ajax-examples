@@ -3,5 +3,9 @@ project/project
 project/target
 target
 tmp
+.settings/
+.project
+.target/
 .history
+.classpath
 dist
