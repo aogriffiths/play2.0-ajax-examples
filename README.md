@@ -13,7 +13,7 @@ To run it, simply do a "git clone", cd to the project directory, then "play run"
 The Code
 --------
 
-It's a pretty simple play 2.0 app. Start by looking at [app/controllers/Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) 
+It's a pretty simple play 2.0 app. Start by looking at [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) 
 which defines four methods:
 
 * sayHello()
@@ -26,10 +26,10 @@ Which are made available to be be called from client side javascript by the last
 * javascriptRoutes()
 
 All five of these java methods have http methods routed to them by the URLs defined in the
-standard play **conf/routes** file (four are GET methods and one is a POST method).
+standard play [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes) file (four are GET methods and one is a POST method).
 
-They are called from the client side "index page" accessed at / and defined by 
-app/views/index.scala.html. This file contains most of the javascript responsible for
+They are called from the client side "index page" defined by 
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html). This file contains most of the javascript responsible for
 calling the methods above.
 
 * sayHello is called as a simple GET request. 
