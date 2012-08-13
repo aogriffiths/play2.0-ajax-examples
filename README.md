@@ -25,42 +25,46 @@ Which are made available to be be called from client side javascript by the last
 
 * javascriptRoutes()
 
-All five of these java methods have http methods routed to them by the URLs defined in the
-standard play [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes) file (four are GET methods and one is a POST method).
+All five of these java methods have http methods routed to them as per [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes) (four are GET methods and one is a POST method).
 
-They are called from the client side "index page" defined by 
+They are called from the "index page" defined by 
 [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html). This file contains most of the javascript responsible for
 calling the methods above.
 
-* sayHello is called as a simple GET request. 
-* sayHelloToString is called as a GET request with the name parameter in the query string.
-* sayHelloToJson is called as POST request with the parameters posted as JSON in the 
+* **sayHello** is called as a simple GET request. 
+* **sayHelloToString** is called as a GET request with the name parameter in the query string.
+* **sayHelloToJson** is called as POST request with the parameters posted as JSON in the 
 request body. The response is sent back as JSON
-* sayHelloWithJson is called as a GET request and the responses is JSON.
+* **sayHelloWithJson** is called as a GET request and the responses is JSON.
 
-For all of these methods to work seamlessly from the client side there one important 
-piece of glue, the "jsRoutes". Basically the best way to understand this is to first 
-read the java method:
+jsRoutes
+--------
+
+For these methods to work seamlessly from the client side there one important 
+piece of glue, the "jsRoutes". The best way to understand this is to first 
+see the java method:
 
     app.controllers.Application.javascriptRoutes()
 
-Which builds a javascript "routing" script, which is itself is routed to, with (defined
-in the conf/routes file): 
+Which builds a "routing" javascript, which is itself is routed to, with: (see [routes](/aogriffiths/play2.0-ajax-examples/blob/master/conf/routes)): 
 
     GET     /assets/javascripts/routes  controllers.Application.javascriptRoutes()
  
-And called into the browser by the line (defined in the app/views/main.scala.html file):
+And called into the browser by the line: (see [main.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/main.scala.html)):
 
     <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
 
-This means javascript in app/views/index.scala.html can easily call the java in 
-app.controllers.Application with lines like 
+This means javascript in [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
+ can easily call the java in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java)  with lines like 
 
     jsRoutes.controllers.Application.sayHello()
 
 
-That's the highlights, hopefully you can get all details and nuances of the four methods from
-the code. Applications.java and index.scala.html both contains comments. If you would like to 
-understand more of what is going on under the hood there are comments in Applications.java
-on how to use cURL to play with the examples and index.scala.html includes debug statements 
-for your browser's javascript debug console. 
+That's the highlights, hopefully you can get all details and nuances from
+the code. 
+[Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) and 
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html) 
+both contain comments. If you would like to understand more of what is going on under the 
+hood the comments in Applications.java metion how to use cURL to play with the metods and 
+[index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/conf/app/views/index.scala.html)
+includes debug statements  for your browser's javascript debug console. 
