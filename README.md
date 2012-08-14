@@ -74,6 +74,6 @@ includes debug statements  for your browser's javascript debug console.
 
 List of Examples
 --------------
-[play2.0-form-example](../play2.0-form-example)
-[play2.0-ajax-examples](../play2.0-ajax-examples)
+* [play2.0-form-example](play2.0-form-example)
+* [play2.0-ajax-examples](play2.0-ajax-examples)
 
