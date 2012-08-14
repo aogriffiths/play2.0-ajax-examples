@@ -71,3 +71,9 @@ both contain comments. If you would like to understand more of what is going on 
 hood the comments in [Application.java](/aogriffiths/play2.0-ajax-examples/blob/master/app/controllers/Application.java) mention how to use cURL to play arround with it. And 
 [index.scala.html](/aogriffiths/play2.0-ajax-examples/blob/master/app/views/index.scala.html)
 includes debug statements  for your browser's javascript debug console. 
+
+List of Examples
+--------------
+[play2.0-form-example](../play2.0-form-example)
+[play2.0-ajax-examples](../play2.0-ajax-examples)
+

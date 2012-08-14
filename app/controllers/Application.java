@@ -55,10 +55,10 @@ public class Application extends Controller {
     response().setContentType("text/javascript");
     return ok(Routes.javascriptRouter(
         "jsRoutes",
-        controllers.routes.javascript.Application.sayHello(),
-        controllers.routes.javascript.Application.sayHelloToString(),
-        controllers.routes.javascript.Application.sayHelloToJson(),
-        controllers.routes.javascript.Application.sayHelloWithJson()));
+        routes.javascript.Application.sayHello(),
+        routes.javascript.Application.sayHelloToString(),
+        routes.javascript.Application.sayHelloToJson(),
+        routes.javascript.Application.sayHelloWithJson()));
   }
 
 }
